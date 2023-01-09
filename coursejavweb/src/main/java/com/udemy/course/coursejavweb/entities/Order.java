@@ -22,7 +22,9 @@ public class Order implements Serializable {
 	private Long id;
 	private Instant moment;
 	
-//	implementando o relacionamento entre pedidos e clientes para o jpa transformar isso em chave estrangeira no banco de dados
+//	implementando o relacionamento entre pedidos e clientes
+//	para o jpa transformar isso em chave estrangeira no banco de dados
+	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private User client;
