@@ -1,0 +1,5 @@
+implementando o relacionamento entre pedidos e clientes para o jpa transformar isso em chave estrangeira no banco de dados
+@ManyToOne
+@JoinColumn(name = "cliente_id")
+
+quando voce faz uma chamada de um pedido automaticamente o jpa carrega o cliente associado a ele
