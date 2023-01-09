@@ -9,29 +9,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udemy.course.coursejavweb.entities.User;
-import com.udemy.course.coursejavweb.services.UserService;
+import com.udemy.course.coursejavweb.entities.Order;
+import com.udemy.course.coursejavweb.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/users") // Como a página vai ser chamada (Ex. Nomedapagina/users)
-public class UserResource {
+@RequestMapping(value = "/orders")
+public class OrderResource {
 	
 	//colocando uma dependencia para o service
 	@Autowired  
-	private UserService service;
+	private OrderService service;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> list = service.findAll();
+	public ResponseEntity<List<Order>> findAll(){
+		List<Order> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 		
-//		User u = new User(1l, "Gerson Araújo", "gerson22@gmail.com", "21-98000-5454", "12345678");
+//		Order u = new Order(1l, "Gerson Araújo", "gerson22@gmail.com", "21-98000-5454", "12345678");
 //		return ResponseEntity.ok().body(u);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findByid(@PathVariable Long id){
-		User obj = service.findById(id);
+	public ResponseEntity<Order> findByid(@PathVariable Long id){
+		Order obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
