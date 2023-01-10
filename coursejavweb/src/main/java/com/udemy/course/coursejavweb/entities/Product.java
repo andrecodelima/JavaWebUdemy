@@ -41,6 +41,7 @@ public class Product implements Serializable{
 	private Set<Category> categories = new HashSet<>(); // Garante que a coleção não começe valendo nulla. Ela pode
 														// começar vazia porém instanciada
 
+	//ÁREA DAS ASSOCIAÇÕES
 	@OneToMany(mappedBy = "id.product")
 	private Set<OrderItem> items = new HashSet<>(); 
 	
