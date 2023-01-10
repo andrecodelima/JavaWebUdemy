@@ -10,4 +10,7 @@ quando voce faz uma chamada de um pedido automaticamente o jpa carrega o cliente
 	joinColumns = @JoinColumn(name = "product_id"), 
 	inverseJoinColumns = @JoinColumn(name = "category_id"))
 
-	teste
+	
+	
+		@GetMapping(value = "/{id}") //Esses endpoints servem para recuperar os dados do banco. Quando esse é o objetivo, usamos o método GET do http.
+		Quando o objetivo é inserir um novo recurso, usamos o metodo http POST
