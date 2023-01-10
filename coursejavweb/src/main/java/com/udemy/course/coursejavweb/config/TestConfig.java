@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.udemy.course.coursejavweb.entities.Category;
 import com.udemy.course.coursejavweb.entities.Order;
+import com.udemy.course.coursejavweb.entities.OrderItem;
 import com.udemy.course.coursejavweb.entities.Product;
 import com.udemy.course.coursejavweb.entities.User;
 import com.udemy.course.coursejavweb.entities.enums.OrderStatus;
 import com.udemy.course.coursejavweb.repositories.CategoryRepository;
+import com.udemy.course.coursejavweb.repositories.OrderItemRepository;
 import com.udemy.course.coursejavweb.repositories.OrderRepository;
 import com.udemy.course.coursejavweb.repositories.ProductRepository;
 import com.udemy.course.coursejavweb.repositories.UserRepository;
@@ -27,7 +29,7 @@ public class TestConfig implements CommandLineRunner{
 // quando um servico depende de outro ela tem que ser fraca, desaclopada
 			
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository userRepository; // Fazendo a injeção de dados no banco (repositorio)
 	
 	@Autowired
 	private OrderRepository orderRepository;
@@ -37,6 +39,9 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 	
 
 	@Override
@@ -76,6 +81,14 @@ public class TestConfig implements CommandLineRunner{
 
 		userRepository.saveAll(Arrays.asList(u1,u2));
 		orderRepository.saveAll(Arrays.asList(o1,o2,o3));
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+		
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4 ));
+		
 		
 	} 
 	
