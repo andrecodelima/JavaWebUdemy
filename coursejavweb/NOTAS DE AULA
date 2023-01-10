@@ -3,3 +3,9 @@ implementando o relacionamento entre pedidos e clientes para o jpa transformar i
 @JoinColumn(name = "cliente_id")
 
 quando voce faz uma chamada de um pedido automaticamente o jpa carrega o cliente associado a ele
+
+
+@ManyToMany
+	@JoinTable(name = "tb_product_category", 
+	joinColumns = @JoinColumn(name = "product_id"), 
+	inverseJoinColumns = @JoinColumn(name = "category_id"))
